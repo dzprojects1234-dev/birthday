@@ -4,16 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Selamat Hari Lahir Anak Saudara 🎂</title>
+
+    <!-- Font mesra kanak-kanak: Baloo 2 (bulat & comel) + Fredoka (fallback) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', cursive, sans-serif;
+            font-family: 'Baloo 2', 'Fredoka', 'Segoe UI', system-ui, sans-serif;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #f9d9e0 0%, #fce2b4 50%, #c9e4de 100%);
+            /* Tema purple ceria */
+            background: linear-gradient(135deg, #e9d5ff 0%, #c4b5fd 30%, #a78bfa 60%, #d8b4fe 100%);
             padding: 1rem;
             overflow-x: hidden;
             position: relative;
@@ -24,10 +31,10 @@
             position: absolute;
             font-size: 3.5rem;
             animation: floatUp 12s infinite ease-in-out;
-            opacity: 0.7;
+            opacity: 0.8;
             pointer-events: none;
             z-index: 0;
-            filter: drop-shadow(0 8px 6px rgba(0,0,0,0.1));
+            filter: drop-shadow(0 8px 6px rgba(80, 40, 120, 0.2));
         }
         .balloon:nth-child(1) { left: 2%; top: 70%; animation-duration: 18s; font-size: 4rem; }
         .balloon:nth-child(2) { left: 90%; top: 60%; animation-duration: 22s; animation-delay: 2s; font-size: 5rem; }
@@ -44,12 +51,13 @@
 
         .star {
             position: absolute;
-            color: #ffd966;
+            color: #fde68a;
             font-size: 1.8rem;
-            opacity: 0.7;
+            opacity: 0.9;
             animation: twinkle 2.5s infinite alternate;
             pointer-events: none;
             z-index: 0;
+            filter: drop-shadow(0 0 6px rgba(253, 230, 138, 0.8));
         }
         .star:nth-child(7) { left: 10%; top: 10%; }
         .star:nth-child(8) { left: 88%; top: 45%; animation-delay: 0.5s; }
@@ -58,19 +66,19 @@
         .star:nth-child(11) { left: 50%; top: 5%; animation-delay: 0.8s; }
 
         @keyframes twinkle {
-            0% { opacity: 0.3; transform: scale(0.8); }
-            100% { opacity: 0.9; transform: scale(1.2); }
+            0% { opacity: 0.4; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.2); }
         }
 
         /* ===== KAD UTAMA ===== */
         .card {
             position: relative;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(10px);
             border-radius: 60px;
-            box-shadow: 0 30px 50px -10px rgba(200, 100, 120, 0.4),
-                        0 0 0 6px #ffe8f0,
-                        0 0 0 12px #fff3f8;
+            box-shadow: 0 30px 50px -10px rgba(109, 40, 217, 0.45),
+                        0 0 0 6px #ede9fe,
+                        0 0 0 12px #f5f3ff;
             padding: 2rem 1.8rem;
             max-width: 700px;
             width: 100%;
@@ -90,7 +98,7 @@
             animation: bounce 2s infinite;
             display: inline-block;
             margin-bottom: 0.2rem;
-            filter: drop-shadow(0 10px 10px rgba(220, 120, 140, 0.3));
+            filter: drop-shadow(0 10px 10px rgba(120, 60, 180, 0.3));
         }
 
         @keyframes bounce {
@@ -99,24 +107,26 @@
         }
 
         h1 {
+            font-family: 'Baloo 2', 'Fredoka', sans-serif;
             font-size: 3rem;
-            font-weight: 900;
-            color: #b3415c;
-            text-shadow: 3px 3px 0 #ffe2ec, 6px 6px 0 rgba(255, 200, 210, 0.5);
-            letter-spacing: 2px;
+            font-weight: 800;
+            color: #6d28d9;
+            text-shadow: 3px 3px 0 #ede9fe, 6px 6px 0 rgba(167, 139, 250, 0.4);
+            letter-spacing: 1px;
             line-height: 1.2;
             margin: 0.2rem 0;
             word-break: break-word;
         }
 
         .name {
+            font-family: 'Baloo 2', 'Fredoka', sans-serif;
             font-size: 4rem;
-            font-weight: 900;
-            background: linear-gradient(45deg, #ff6b8b, #ffb347, #ff6b8b);
+            font-weight: 800;
+            background: linear-gradient(45deg, #9333ea, #ec4899, #8b5cf6);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 5px 15px rgba(255, 150, 150, 0.6);
+            text-shadow: 0 5px 15px rgba(167, 139, 250, 0.5);
             margin: 0.2rem 0 0;
             line-height: 1.2;
             word-break: break-word;
@@ -131,19 +141,20 @@
 
         .age {
             display: inline-block;
-            background: #ffd966;
-            color: #8b3a4a;
+            background: linear-gradient(145deg, #fbbf24, #f59e0b);
+            color: #6b21a8;
+            font-family: 'Baloo 2', 'Fredoka', sans-serif;
             font-size: 1.8rem;
-            font-weight: 900;
+            font-weight: 800;
             padding: 0.3rem 1.8rem;
             border-radius: 60px;
             margin: 0.5rem 0 0.2rem;
-            box-shadow: 0 8px 0 #d4a82b, 0 10px 20px rgba(200, 150, 0, 0.3);
+            box-shadow: 0 8px 0 #d97706, 0 10px 20px rgba(217, 119, 6, 0.35);
             transform: rotate(-2deg);
             border: 3px solid white;
         }
 
-        /* ===== STATS PANEL (VIEWS + LIKES + SUBS) ===== */
+        /* ===== STATS PANEL ===== */
         .stats-panel {
             display: flex;
             flex-wrap: wrap;
@@ -156,13 +167,14 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: #1a1a2e;
+            background: #2e1065;
             color: #fff;
+            font-family: 'Baloo 2', 'Fredoka', sans-serif;
             font-size: 1rem;
             font-weight: 700;
             padding: 0.45rem 1rem;
             border-radius: 40px;
-            box-shadow: 0 6px 0 #0d0d1a, 0 8px 15px rgba(0,0,0,0.25);
+            box-shadow: 0 6px 0 #1e0a4a, 0 8px 15px rgba(46, 16, 101, 0.4);
             letter-spacing: 0.3px;
             transition: transform 0.2s;
         }
@@ -191,16 +203,16 @@
         }
 
         .stat-badge .count {
-            color: #ffd966;
+            color: #fde68a;
             font-size: 1.15rem;
             min-width: 3ch;
             text-align: center;
             font-variant-numeric: tabular-nums;
         }
 
-        .stat-badge.views { background: #1a1a2e; }
-        .stat-badge.likes { background: #2e1a2e; }
-        .stat-badge.subs { background: #1a2e1a; }
+        .stat-badge.views { background: #2e1065; }
+        .stat-badge.likes { background: #6b21a8; box-shadow: 0 6px 0 #4a1775, 0 8px 15px rgba(107, 33, 168, 0.4); }
+        .stat-badge.subs { background: #4c1d95; box-shadow: 0 6px 0 #2e1065, 0 8px 15px rgba(76, 29, 149, 0.4); }
 
         /* ===== BADGE TRENDING & VIRAL ===== */
         .viral-badges {
@@ -212,8 +224,9 @@
         }
 
         .viral-badge {
+            font-family: 'Baloo 2', 'Fredoka', sans-serif;
             font-size: 0.85rem;
-            font-weight: 900;
+            font-weight: 800;
             padding: 0.3rem 0.9rem;
             border-radius: 30px;
             letter-spacing: 1px;
@@ -221,15 +234,15 @@
         }
 
         .viral-badge.trending {
-            background: linear-gradient(145deg, #ff6b35, #ff3b3b);
+            background: linear-gradient(145deg, #f97316, #ef4444);
             color: white;
-            box-shadow: 0 4px 0 #b22222, 0 6px 12px rgba(255,60,60,0.4);
+            box-shadow: 0 4px 0 #b91c1c, 0 6px 12px rgba(239, 68, 68, 0.4);
         }
 
         .viral-badge.viral {
-            background: linear-gradient(145deg, #9b59b6, #6c3483);
+            background: linear-gradient(145deg, #a855f7, #7c3aed);
             color: white;
-            box-shadow: 0 4px 0 #4a235a, 0 6px 12px rgba(155,89,182,0.4);
+            box-shadow: 0 4px 0 #5b21b6, 0 6px 12px rgba(124, 58, 237, 0.4);
         }
 
         @keyframes viralGlow {
@@ -248,7 +261,7 @@
         .cake-emoji {
             font-size: 7rem;
             line-height: 1;
-            filter: drop-shadow(0 15px 15px rgba(200, 120, 140, 0.4));
+            filter: drop-shadow(0 15px 15px rgba(120, 60, 180, 0.4));
             transition: transform 0.3s;
         }
 
@@ -275,16 +288,17 @@
 
         /* ===== MESEJ ===== */
         .message {
-            font-size: 1.3rem;
-            color: #5e3a45;
-            background: #fff9fc;
+            font-family: 'Baloo 2', 'Fredoka', sans-serif;
+            font-size: 1.4rem;
+            color: #4c1d95;
+            background: #faf5ff;
             padding: 1.2rem 1.5rem;
             border-radius: 50px;
             margin: 1.2rem 0 1.5rem;
             line-height: 1.6;
-            box-shadow: inset 0 0 0 3px #ffe2ec, 0 10px 20px rgba(200, 130, 150, 0.15);
+            box-shadow: inset 0 0 0 3px #e9d5ff, 0 10px 20px rgba(109, 40, 217, 0.15);
             font-weight: 600;
-            border: 2px dashed #ffb6c1;
+            border: 2px dashed #c4b5fd;
         }
 
         /* ===== BUTANG ===== */
@@ -299,6 +313,7 @@
         .btn {
             border: none;
             color: white;
+            font-family: 'Baloo 2', 'Fredoka', sans-serif;
             font-size: 1.3rem;
             font-weight: 700;
             padding: 1rem 1.8rem;
@@ -309,27 +324,26 @@
             gap: 10px;
             cursor: pointer;
             transition: all 0.15s ease;
-            font-family: inherit;
-            box-shadow: 0 10px 0 #8b3a4a, 0 12px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 0 #5b21b6, 0 12px 20px rgba(0,0,0,0.15);
             border: 2px solid rgba(255,255,255,0.6);
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             min-width: 180px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .btn:active {
             transform: translateY(6px);
-            box-shadow: 0 4px 0 #8b3a4a, 0 6px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 0 #5b21b6, 0 6px 12px rgba(0,0,0,0.15);
         }
 
-        .btn-song { background: linear-gradient(145deg, #ff6b8b, #d94f6e); }
-        .btn-song:hover { background: linear-gradient(145deg, #ff7f9b, #c73d5e); transform: scale(1.03); }
+        .btn-song { background: linear-gradient(145deg, #a855f7, #7c3aed); }
+        .btn-song:hover { background: linear-gradient(145deg, #b975f9, #8b5cf6); transform: scale(1.03); }
 
         .btn-candle {
-            background: linear-gradient(145deg, #ffb347, #e6952e);
-            box-shadow: 0 10px 0 #a36b1e, 0 12px 20px rgba(0,0,0,0.15);
+            background: linear-gradient(145deg, #fbbf24, #f59e0b);
+            box-shadow: 0 10px 0 #b45309, 0 12px 20px rgba(0,0,0,0.15);
         }
-        .btn-candle:hover { background: linear-gradient(145deg, #ffc06b, #d68925); transform: scale(1.03); }
+        .btn-candle:hover { background: linear-gradient(145deg, #fcd34d, #fbbf24); transform: scale(1.03); }
 
         .btn-candle.blown {
             background: linear-gradient(145deg, #b0b0b0, #888);
@@ -353,20 +367,20 @@
         }
 
         .btn-like {
-            background: linear-gradient(145deg, #4a90ff, #2f6fd6);
-            box-shadow: 0 10px 0 #1e4a99, 0 12px 20px rgba(0,0,0,0.15);
+            background: linear-gradient(145deg, #3b82f6, #2563eb);
+            box-shadow: 0 10px 0 #1e40af, 0 12px 20px rgba(0,0,0,0.15);
         }
-        .btn-like:hover { background: linear-gradient(145deg, #6aa5ff, #3a7ee0); transform: scale(1.03); }
+        .btn-like:hover { background: linear-gradient(145deg, #60a5fa, #3b82f6); transform: scale(1.03); }
         .btn-like.liked {
-            background: linear-gradient(145deg, #ff4d6d, #d42f4f);
-            box-shadow: 0 10px 0 #991f35, 0 12px 20px rgba(0,0,0,0.15);
+            background: linear-gradient(145deg, #ec4899, #db2777);
+            box-shadow: 0 10px 0 #9d174d, 0 12px 20px rgba(0,0,0,0.15);
         }
 
         .btn-subscribe {
-            background: linear-gradient(145deg, #ff3b3b, #cc0000);
-            box-shadow: 0 10px 0 #8b0000, 0 12px 20px rgba(0,0,0,0.15);
+            background: linear-gradient(145deg, #ef4444, #dc2626);
+            box-shadow: 0 10px 0 #991b1b, 0 12px 20px rgba(0,0,0,0.15);
         }
-        .btn-subscribe:hover { background: linear-gradient(145deg, #ff5c5c, #e60000); transform: scale(1.03); }
+        .btn-subscribe:hover { background: linear-gradient(145deg, #f87171, #ef4444); transform: scale(1.03); }
         .btn-subscribe.subscribed {
             background: linear-gradient(145deg, #888, #666);
             box-shadow: 0 10px 0 #444, 0 12px 20px rgba(0,0,0,0.15);
@@ -386,7 +400,7 @@
             justify-content: center;
             gap: 10px;
             margin: 10px 0 5px;
-            color: #d46b88;
+            color: #a855f7;
             font-size: 1.8rem;
             letter-spacing: 12px;
         }
@@ -403,20 +417,20 @@
 
         .footer {
             margin-top: 1rem;
-            font-size: 1.15rem;
-            color: #b3415c;
-            font-style: italic;
-            font-weight: 700;
-            letter-spacing: 0.5px;
+            font-family: 'Baloo 2', 'Fredoka', sans-serif;
+            font-size: 1.2rem;
+            color: #6d28d9;
+            font-weight: 600;
+            letter-spacing: 0.3px;
         }
 
         .footer .signature {
             display: block;
-            font-size: 1.5rem;
-            color: #d94f6e;
+            font-size: 1.6rem;
+            color: #9333ea;
             margin-top: 0.3rem;
-            font-style: normal;
-            text-shadow: 1px 1px 0 #ffe2ec;
+            font-weight: 800;
+            text-shadow: 1px 1px 0 #ede9fe;
         }
 
         /* ===== RESPONSIF ===== */
@@ -426,24 +440,25 @@
             .name { font-size: 2.6rem; }
             .age { font-size: 1.4rem; padding: 0.2rem 1.2rem; }
             .cake-emoji { font-size: 5rem; }
-            .message { font-size: 1rem; padding: 1rem; }
-            .btn { font-size: 1rem; padding: 0.8rem 1rem; min-width: 140px; gap: 6px; }
+            .message { font-size: 1.15rem; padding: 1rem; }
+            .btn { font-size: 1.05rem; padding: 0.8rem 1rem; min-width: 140px; gap: 6px; }
             .balloon { font-size: 2.2rem !important; }
             .star { font-size: 1.2rem; }
-            .footer { font-size: 1rem; }
-            .footer .signature { font-size: 1.3rem; }
-            .stat-badge { font-size: 0.8rem; padding: 0.35rem 0.7rem; gap: 4px; }
-            .stat-badge .count { font-size: 0.95rem; }
-            .viral-badge { font-size: 0.7rem; padding: 0.25rem 0.7rem; }
+            .footer { font-size: 1.05rem; }
+            .footer .signature { font-size: 1.35rem; }
+            .stat-badge { font-size: 0.85rem; padding: 0.35rem 0.7rem; gap: 4px; }
+            .stat-badge .count { font-size: 1rem; }
+            .viral-badge { font-size: 0.72rem; padding: 0.25rem 0.7rem; }
         }
 
         @media (max-width: 400px) {
             h1 { font-size: 1.8rem; }
             .name { font-size: 2.1rem; }
-            .btn { font-size: 0.9rem; min-width: 120px; }
+            .btn { font-size: 0.92rem; min-width: 120px; }
             .button-group, .social-group { gap: 8px; }
             .stats-panel { gap: 5px; }
-            .stat-badge { font-size: 0.7rem; padding: 0.3rem 0.6rem; }
+            .stat-badge { font-size: 0.72rem; padding: 0.3rem 0.6rem; }
+            .message { font-size: 1.05rem; }
         }
     </style>
 </head>
@@ -469,7 +484,7 @@
         <div class="name">Anak Saudara Tersayang</div>
         <div class="age">Comel &amp; Ceria!</div>
 
-        <!-- Stats panel: Views, Likes, Subscribers -->
+        <!-- Stats panel -->
         <div class="stats-panel">
             <div class="stat-badge views" id="viewsBadge">
                 <span class="dot"></span>
@@ -552,46 +567,38 @@
             const subsBadge = document.getElementById('subsBadge');
 
             /* ===== ANGKA ASAS ===== */
-            const BASE_VIEWS = 1234567;   // 1.2 juta
-            const BASE_LIKES = 98765;     // 98K
-            const BASE_SUBS  = 12345;     // 12K
+            const BASE_VIEWS = 1234567;
+            const BASE_LIKES = 98765;
+            const BASE_SUBS  = 12345;
 
-            /* ===== FORMAT ANGKA (contoh: 1.2J, 98.7K) ===== */
+            /* ===== FORMAT ANGKA ===== */
             function formatCount(n) {
                 if (n >= 1000000) return (n / 1000000).toFixed(1).replace('.0','') + 'J';
                 if (n >= 1000) return (n / 1000).toFixed(1).replace('.0','') + 'K';
                 return n.toString();
             }
 
-            /* ===== ANIMASI KIRAAN NAIK ===== */
             function animateCount(el, target, duration = 1500, formatter = formatCount) {
                 const start = performance.now();
                 const from = 0;
                 function step(now) {
                     const elapsed = now - start;
                     const progress = Math.min(elapsed / duration, 1);
-                    // easing ease-out
                     const eased = 1 - Math.pow(1 - progress, 3);
                     const current = Math.floor(from + (target - from) * eased);
                     el.textContent = formatter(current);
-                    if (progress < 1) {
-                        requestAnimationFrame(step);
-                    } else {
-                        el.textContent = formatter(target);
-                    }
+                    if (progress < 1) requestAnimationFrame(step);
+                    else el.textContent = formatter(target);
                 }
                 requestAnimationFrame(step);
             }
 
-            /* ===== VIEWS: asas + auto-naik rawak ===== */
+            /* ===== VIEWS ===== */
             let viewsCount = BASE_VIEWS;
-
-            // Animasi mula
             animateCount(viewCountEl, BASE_VIEWS, 1800, formatCount);
 
-            // Auto-naik setiap 4-7 saat (rawak kecil)
             setInterval(() => {
-                const jump = Math.floor(Math.random() * 5) + 1; // 1-5
+                const jump = Math.floor(Math.random() * 5) + 1;
                 viewsCount += jump;
                 viewCountEl.textContent = formatCount(viewsCount);
                 viewsBadge.classList.remove('pulse');
@@ -599,7 +606,7 @@
                 viewsBadge.classList.add('pulse');
             }, 4500 + Math.random() * 3000);
 
-            /* ===== LIKES: asas + like user ===== */
+            /* ===== LIKES ===== */
             let liked = localStorage.getItem('kadLiked') === 'true';
             let likeCount = BASE_LIKES + (liked ? 1 : 0);
 
@@ -626,7 +633,6 @@
                     likeStatCountEl.textContent = formatCount(likeCount);
                     likeCountEl.textContent = formatCount(likeCount);
                 }
-
                 if (liked) {
                     likeBtn.classList.add('liked');
                     likeIcon.textContent = '❤️';
@@ -636,7 +642,6 @@
                 }
             }
 
-            // Mula dengan animasi
             setTimeout(() => {
                 animateCount(likeStatCountEl, likeCount, 1600, formatCount);
                 likeCountEl.textContent = formatCount(likeCount);
@@ -660,7 +665,6 @@
                     for (let i = 0; i < 8; i++) createConfetti();
                 }
                 renderLikes(true);
-                // Pulse pada badge likes
                 likesBadge.classList.remove('pulse');
                 void likesBadge.offsetWidth;
                 likesBadge.classList.add('pulse');
@@ -716,7 +720,7 @@
                 subsBadge.classList.add('pulse');
             });
 
-            /* ===== NOT LAGU HAPPY BIRTHDAY ===== */
+            /* ===== NOT LAGU ===== */
             const notes = [
                 { note: 'G4', dur: 0.3 }, { note: 'G4', dur: 0.15 }, { note: 'A4', dur: 0.5 }, { note: 'G4', dur: 0.5 }, { note: 'C5', dur: 0.5 }, { note: 'B4', dur: 0.9 },
                 { note: 'G4', dur: 0.3 }, { note: 'G4', dur: 0.15 }, { note: 'A4', dur: 0.5 }, { note: 'G4', dur: 0.5 }, { note: 'D5', dur: 0.5 }, { note: 'C5', dur: 0.9 },
@@ -783,7 +787,7 @@
                 }, totalDuration * 1000 + 200);
             }
 
-            /* ===== POTONG KEK + CONFETTI ===== */
+            /* ===== POTONG KEK ===== */
             function blowCandles() {
                 if (candleBtn.classList.contains('blown')) return;
                 candlesDiv.classList.add('off');
