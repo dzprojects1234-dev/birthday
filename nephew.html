@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Selamat Hari Lahir Anak Saudara 🎂</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', cursive, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f9d9e0 0%, #fce2b4 50%, #c9e4de 100%);
+            padding: 1rem;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ===== HIASAN LATAR ===== */
+        .balloon {
+            position: absolute;
+            font-size: 3.5rem;
+            animation: floatUp 12s infinite ease-in-out;
+            opacity: 0.7;
+            pointer-events: none;
+            z-index: 0;
+            filter: drop-shadow(0 8px 6px rgba(0,0,0,0.1));
+        }
+        .balloon:nth-child(1) { left: 2%; top: 70%; animation-duration: 18s; font-size: 4rem; }
+        .balloon:nth-child(2) { left: 90%; top: 60%; animation-duration: 22s; animation-delay: 2s; font-size: 5rem; }
+        .balloon:nth-child(3) { left: 15%; top: 20%; animation-duration: 16s; animation-delay: 1s; font-size: 3.2rem; }
+        .balloon:nth-child(4) { left: 80%; top: 15%; animation-duration: 20s; animation-delay: 3s; font-size: 4.5rem; }
+        .balloon:nth-child(5) { left: 45%; top: 85%; animation-duration: 24s; font-size: 3.8rem; }
+        .balloon:nth-child(6) { left: 70%; top: 80%; animation-duration: 19s; animation-delay: 4s; font-size: 3rem; }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg) scale(1); }
+            50% { transform: translateY(-40px) rotate(8deg) scale(1.05); }
+            100% { transform: translateY(0) rotate(0deg) scale(1); }
+        }
+
+        .star {
+            position: absolute;
+            color: #ffd966;
+            font-size: 1.8rem;
+            opacity: 0.7;
+            animation: twinkle 2.5s infinite alternate;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .star:nth-child(7) { left: 10%; top: 10%; }
+        .star:nth-child(8) { left: 88%; top: 45%; animation-delay: 0.5s; }
+        .star:nth-child(9) { left: 25%; top: 80%; animation-delay: 1s; }
+        .star:nth-child(10) { left: 75%; top: 25%; animation-delay: 1.5s; }
+        .star:nth-child(11) { left: 50%; top: 5%; animation-delay: 0.8s; }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: scale(0.8); }
+            100% { opacity: 0.9; transform: scale(1.2); }
+        }
+
+        /* ===== KAD UTAMA ===== */
+        .card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 60px;
+            box-shadow: 0 30px 50px -10px rgba(200, 100, 120, 0.4),
+                        0 0 0 6px #ffe8f0,
+                        0 0 0 12px #fff3f8;
+            padding: 2rem 1.8rem;
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+            animation: cardPop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes cardPop {
+            0% { transform: scale(0.7); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .top-emoji {
+            font-size: 4.5rem;
+            line-height: 1;
+            animation: bounce 2s infinite;
+            display: inline-block;
+            margin-bottom: 0.2rem;
+            filter: drop-shadow(0 10px 10px rgba(220, 120, 140, 0.3));
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #b3415c;
+            text-shadow: 3px 3px 0 #ffe2ec, 6px 6px 0 rgba(255, 200, 210, 0.5);
+            letter-spacing: 2px;
+            line-height: 1.2;
+            margin: 0.2rem 0;
+            word-break: break-word;
+        }
+
+        .name {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ff6b8b, #ffb347, #ff6b8b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 15px rgba(255, 150, 150, 0.6);
+            margin: 0.2rem 0 0;
+            line-height: 1.2;
+            word-break: break-word;
+            animation: shimmer 3s infinite;
+            background-size: 200% auto;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .age {
+            display: inline-block;
+            background: #ffd966;
+            color: #8b3a4a;
+            font-size: 1.8rem;
+            font-weight: 900;
+            padding: 0.3rem 1.8rem;
+            border-radius: 60px;
+            margin: 0.5rem 0 0.2rem;
+            box-shadow: 0 8px 0 #d4a82b, 0 10px 20px rgba(200, 150, 0, 0.3);
+            transform: rotate(-2deg);
+            border: 3px solid white;
+        }
+
+        /* ===== STATS PANEL (VIEWS + LIKES + SUBS) ===== */
+        .stats-panel {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin: 1rem 0 0.3rem;
+        }
+
+        .stat-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #1a1a2e;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 0.45rem 1rem;
+            border-radius: 40px;
+            box-shadow: 0 6px 0 #0d0d1a, 0 8px 15px rgba(0,0,0,0.25);
+            letter-spacing: 0.3px;
+            transition: transform 0.2s;
+        }
+
+        .stat-badge.pulse {
+            animation: badgePulse 0.5s ease;
+        }
+
+        @keyframes badgePulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.12); }
+            100% { transform: scale(1); }
+        }
+
+        .stat-badge .dot {
+            width: 9px;
+            height: 9px;
+            background: #ff3b3b;
+            border-radius: 50%;
+            animation: livePulse 1.2s infinite;
+        }
+
+        @keyframes livePulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.8); }
+        }
+
+        .stat-badge .count {
+            color: #ffd966;
+            font-size: 1.15rem;
+            min-width: 3ch;
+            text-align: center;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .stat-badge.views { background: #1a1a2e; }
+        .stat-badge.likes { background: #2e1a2e; }
+        .stat-badge.subs { background: #1a2e1a; }
+
+        /* ===== BADGE TRENDING & VIRAL ===== */
+        .viral-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin: 0.4rem 0 0.6rem;
+        }
+
+        .viral-badge {
+            font-size: 0.85rem;
+            font-weight: 900;
+            padding: 0.3rem 0.9rem;
+            border-radius: 30px;
+            letter-spacing: 1px;
+            animation: viralGlow 1.8s infinite alternate;
+        }
+
+        .viral-badge.trending {
+            background: linear-gradient(145deg, #ff6b35, #ff3b3b);
+            color: white;
+            box-shadow: 0 4px 0 #b22222, 0 6px 12px rgba(255,60,60,0.4);
+        }
+
+        .viral-badge.viral {
+            background: linear-gradient(145deg, #9b59b6, #6c3483);
+            color: white;
+            box-shadow: 0 4px 0 #4a235a, 0 6px 12px rgba(155,89,182,0.4);
+        }
+
+        @keyframes viralGlow {
+            0% { filter: brightness(1); transform: scale(1); }
+            100% { filter: brightness(1.25); transform: scale(1.04); }
+        }
+
+        /* ===== KEK & LILIN ===== */
+        .cake-container {
+            margin: 1rem 0 0.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cake-emoji {
+            font-size: 7rem;
+            line-height: 1;
+            filter: drop-shadow(0 15px 15px rgba(200, 120, 140, 0.4));
+            transition: transform 0.3s;
+        }
+
+        .cake-emoji.blown { animation: cakeSpin 0.6s ease; }
+
+        @keyframes cakeSpin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(10deg) scale(1.1); }
+            100% { transform: rotate(0deg) scale(1); }
+        }
+
+        .candles {
+            font-size: 2.2rem;
+            letter-spacing: 10px;
+            margin-top: -10px;
+            transition: all 0.4s;
+        }
+
+        .candles.off {
+            opacity: 0.3;
+            filter: grayscale(1);
+            text-decoration: line-through;
+        }
+
+        /* ===== MESEJ ===== */
+        .message {
+            font-size: 1.3rem;
+            color: #5e3a45;
+            background: #fff9fc;
+            padding: 1.2rem 1.5rem;
+            border-radius: 50px;
+            margin: 1.2rem 0 1.5rem;
+            line-height: 1.6;
+            box-shadow: inset 0 0 0 3px #ffe2ec, 0 10px 20px rgba(200, 130, 150, 0.15);
+            font-weight: 600;
+            border: 2px dashed #ffb6c1;
+        }
+
+        /* ===== BUTANG ===== */
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            border: none;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+            padding: 1rem 1.8rem;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            font-family: inherit;
+            box-shadow: 0 10px 0 #8b3a4a, 0 12px 20px rgba(0,0,0,0.15);
+            border: 2px solid rgba(255,255,255,0.6);
+            letter-spacing: 1px;
+            min-width: 180px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .btn:active {
+            transform: translateY(6px);
+            box-shadow: 0 4px 0 #8b3a4a, 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-song { background: linear-gradient(145deg, #ff6b8b, #d94f6e); }
+        .btn-song:hover { background: linear-gradient(145deg, #ff7f9b, #c73d5e); transform: scale(1.03); }
+
+        .btn-candle {
+            background: linear-gradient(145deg, #ffb347, #e6952e);
+            box-shadow: 0 10px 0 #a36b1e, 0 12px 20px rgba(0,0,0,0.15);
+        }
+        .btn-candle:hover { background: linear-gradient(145deg, #ffc06b, #d68925); transform: scale(1.03); }
+
+        .btn-candle.blown {
+            background: linear-gradient(145deg, #b0b0b0, #888);
+            box-shadow: 0 10px 0 #555, 0 12px 20px rgba(0,0,0,0.15);
+            pointer-events: none;
+            opacity: 0.85;
+            font-size: 1rem;
+            line-height: 1.3;
+            padding: 0.9rem 1.2rem;
+        }
+
+        .btn:disabled { opacity: 0.7; pointer-events: none; }
+
+        /* ===== BUTANG LIKE & SUBSCRIBE ===== */
+        .social-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin: 0.5rem 0 0.8rem;
+        }
+
+        .btn-like {
+            background: linear-gradient(145deg, #4a90ff, #2f6fd6);
+            box-shadow: 0 10px 0 #1e4a99, 0 12px 20px rgba(0,0,0,0.15);
+        }
+        .btn-like:hover { background: linear-gradient(145deg, #6aa5ff, #3a7ee0); transform: scale(1.03); }
+        .btn-like.liked {
+            background: linear-gradient(145deg, #ff4d6d, #d42f4f);
+            box-shadow: 0 10px 0 #991f35, 0 12px 20px rgba(0,0,0,0.15);
+        }
+
+        .btn-subscribe {
+            background: linear-gradient(145deg, #ff3b3b, #cc0000);
+            box-shadow: 0 10px 0 #8b0000, 0 12px 20px rgba(0,0,0,0.15);
+        }
+        .btn-subscribe:hover { background: linear-gradient(145deg, #ff5c5c, #e60000); transform: scale(1.03); }
+        .btn-subscribe.subscribed {
+            background: linear-gradient(145deg, #888, #666);
+            box-shadow: 0 10px 0 #444, 0 12px 20px rgba(0,0,0,0.15);
+            pointer-events: none;
+        }
+
+        .like-count {
+            background: rgba(255,255,255,0.3);
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            font-size: 1rem;
+        }
+
+        /* ===== NOT MUZIK ===== */
+        .music-notes {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0 5px;
+            color: #d46b88;
+            font-size: 1.8rem;
+            letter-spacing: 12px;
+        }
+        .music-notes span { animation: noteDance 1.4s infinite; }
+        .music-notes span:nth-child(2) { animation-delay: 0.2s; }
+        .music-notes span:nth-child(3) { animation-delay: 0.4s; }
+        .music-notes span:nth-child(4) { animation-delay: 0.6s; }
+        .music-notes span:nth-child(5) { animation-delay: 0.8s; }
+
+        @keyframes noteDance {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-12px) rotate(10deg); opacity: 1; }
+        }
+
+        .footer {
+            margin-top: 1rem;
+            font-size: 1.15rem;
+            color: #b3415c;
+            font-style: italic;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .footer .signature {
+            display: block;
+            font-size: 1.5rem;
+            color: #d94f6e;
+            margin-top: 0.3rem;
+            font-style: normal;
+            text-shadow: 1px 1px 0 #ffe2ec;
+        }
+
+        /* ===== RESPONSIF ===== */
+        @media (max-width: 600px) {
+            .card { padding: 1.5rem 1rem; border-radius: 40px; }
+            h1 { font-size: 2.2rem; }
+            .name { font-size: 2.6rem; }
+            .age { font-size: 1.4rem; padding: 0.2rem 1.2rem; }
+            .cake-emoji { font-size: 5rem; }
+            .message { font-size: 1rem; padding: 1rem; }
+            .btn { font-size: 1rem; padding: 0.8rem 1rem; min-width: 140px; gap: 6px; }
+            .balloon { font-size: 2.2rem !important; }
+            .star { font-size: 1.2rem; }
+            .footer { font-size: 1rem; }
+            .footer .signature { font-size: 1.3rem; }
+            .stat-badge { font-size: 0.8rem; padding: 0.35rem 0.7rem; gap: 4px; }
+            .stat-badge .count { font-size: 0.95rem; }
+            .viral-badge { font-size: 0.7rem; padding: 0.25rem 0.7rem; }
+        }
+
+        @media (max-width: 400px) {
+            h1 { font-size: 1.8rem; }
+            .name { font-size: 2.1rem; }
+            .btn { font-size: 0.9rem; min-width: 120px; }
+            .button-group, .social-group { gap: 8px; }
+            .stats-panel { gap: 5px; }
+            .stat-badge { font-size: 0.7rem; padding: 0.3rem 0.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hiasan latar -->
+    <div class="balloon">🎈</div>
+    <div class="balloon">🎈</div>
+    <div class="balloon">🎈</div>
+    <div class="balloon">🎈</div>
+    <div class="balloon">🎈</div>
+    <div class="balloon">🎈</div>
+    <div class="star">⭐</div>
+    <div class="star">⭐</div>
+    <div class="star">⭐</div>
+    <div class="star">⭐</div>
+    <div class="star">⭐</div>
+
+    <!-- Kad -->
+    <div class="card">
+        <div class="top-emoji">🎂🎉</div>
+        <h1>Selamat Hari Lahir</h1>
+        <div class="name">Anak Saudara Tersayang</div>
+        <div class="age">Comel &amp; Ceria!</div>
+
+        <!-- Stats panel: Views, Likes, Subscribers -->
+        <div class="stats-panel">
+            <div class="stat-badge views" id="viewsBadge">
+                <span class="dot"></span>
+                <span>👀</span>
+                <span class="count" id="viewCount">0</span>
+            </div>
+            <div class="stat-badge likes" id="likesBadge">
+                <span>❤️</span>
+                <span class="count" id="likeStatCount">0</span>
+            </div>
+            <div class="stat-badge subs" id="subsBadge">
+                <span>🔔</span>
+                <span class="count" id="subStatCount">0</span>
+            </div>
+        </div>
+
+        <!-- Badge viral -->
+        <div class="viral-badges">
+            <span class="viral-badge trending">🔥 TRENDING #1</span>
+            <span class="viral-badge viral">⚡ VIRAL</span>
+        </div>
+
+        <div class="cake-container">
+            <div class="cake-emoji" id="cakeEmoji">🎂</div>
+            <div class="candles" id="candles">🕯️ 🕯️ 🕯️</div>
+        </div>
+
+        <div class="music-notes">
+            <span>♪</span> <span>♫</span> <span>♪</span> <span>♩</span> <span>♬</span>
+        </div>
+
+        <div class="message">
+            Semoga membesar dengan sihat, ceria, <br>
+            dan menjadi anak yang baik budi. <br>
+            Pak Cik doakan kamu bahagia selalu! 💖
+        </div>
+
+        <!-- Butang utama -->
+        <div class="button-group">
+            <button class="btn btn-song" id="songBtn" aria-label="Main lagu Happy Birthday">
+                <span>🎵</span> Main Lagu <span>🎶</span>
+            </button>
+            <button class="btn btn-candle" id="candleBtn" aria-label="Potong Kek">
+                <span>💨</span> Sila Potong Virtual Kek <span>🎂</span>
+            </button>
+        </div>
+
+        <!-- Butang social -->
+        <div class="social-group">
+            <button class="btn btn-like" id="likeBtn" aria-label="Like">
+                <span id="likeIcon">👍</span> LIKE
+                <span class="like-count" id="likeCount">0</span>
+            </button>
+            <button class="btn btn-subscribe" id="subBtn" aria-label="Subscribe">
+                <span>🔔</span> SUBSCRIBE
+            </button>
+        </div>
+
+        <div class="footer">
+            — dengan penuh kasih sayang —
+            <span class="signature">Pak Cik Bujang 💝</span>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const songBtn = document.getElementById('songBtn');
+            const candleBtn = document.getElementById('candleBtn');
+            const candlesDiv = document.getElementById('candles');
+            const cakeEmoji = document.getElementById('cakeEmoji');
+            const viewCountEl = document.getElementById('viewCount');
+            const likeStatCountEl = document.getElementById('likeStatCount');
+            const subStatCountEl = document.getElementById('subStatCount');
+            const likeBtn = document.getElementById('likeBtn');
+            const likeIcon = document.getElementById('likeIcon');
+            const likeCountEl = document.getElementById('likeCount');
+            const subBtn = document.getElementById('subBtn');
+            const viewsBadge = document.getElementById('viewsBadge');
+            const likesBadge = document.getElementById('likesBadge');
+            const subsBadge = document.getElementById('subsBadge');
+
+            /* ===== ANGKA ASAS ===== */
+            const BASE_VIEWS = 1234567;   // 1.2 juta
+            const BASE_LIKES = 98765;     // 98K
+            const BASE_SUBS  = 12345;     // 12K
+
+            /* ===== FORMAT ANGKA (contoh: 1.2J, 98.7K) ===== */
+            function formatCount(n) {
+                if (n >= 1000000) return (n / 1000000).toFixed(1).replace('.0','') + 'J';
+                if (n >= 1000) return (n / 1000).toFixed(1).replace('.0','') + 'K';
+                return n.toString();
+            }
+
+            /* ===== ANIMASI KIRAAN NAIK ===== */
+            function animateCount(el, target, duration = 1500, formatter = formatCount) {
+                const start = performance.now();
+                const from = 0;
+                function step(now) {
+                    const elapsed = now - start;
+                    const progress = Math.min(elapsed / duration, 1);
+                    // easing ease-out
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const current = Math.floor(from + (target - from) * eased);
+                    el.textContent = formatter(current);
+                    if (progress < 1) {
+                        requestAnimationFrame(step);
+                    } else {
+                        el.textContent = formatter(target);
+                    }
+                }
+                requestAnimationFrame(step);
+            }
+
+            /* ===== VIEWS: asas + auto-naik rawak ===== */
+            let viewsCount = BASE_VIEWS;
+
+            // Animasi mula
+            animateCount(viewCountEl, BASE_VIEWS, 1800, formatCount);
+
+            // Auto-naik setiap 4-7 saat (rawak kecil)
+            setInterval(() => {
+                const jump = Math.floor(Math.random() * 5) + 1; // 1-5
+                viewsCount += jump;
+                viewCountEl.textContent = formatCount(viewsCount);
+                viewsBadge.classList.remove('pulse');
+                void viewsBadge.offsetWidth;
+                viewsBadge.classList.add('pulse');
+            }, 4500 + Math.random() * 3000);
+
+            /* ===== LIKES: asas + like user ===== */
+            let liked = localStorage.getItem('kadLiked') === 'true';
+            let likeCount = BASE_LIKES + (liked ? 1 : 0);
+
+            function renderLikes(animate = false) {
+                if (animate) {
+                    const target = likeCount;
+                    const from = BASE_LIKES;
+                    const start = performance.now();
+                    const duration = 400;
+                    function step(now) {
+                        const p = Math.min((now - start) / duration, 1);
+                        const eased = 1 - Math.pow(1 - p, 3);
+                        const cur = Math.floor(from + (target - from) * eased);
+                        likeStatCountEl.textContent = formatCount(cur);
+                        likeCountEl.textContent = formatCount(cur);
+                        if (p < 1) requestAnimationFrame(step);
+                        else {
+                            likeStatCountEl.textContent = formatCount(target);
+                            likeCountEl.textContent = formatCount(target);
+                        }
+                    }
+                    requestAnimationFrame(step);
+                } else {
+                    likeStatCountEl.textContent = formatCount(likeCount);
+                    likeCountEl.textContent = formatCount(likeCount);
+                }
+
+                if (liked) {
+                    likeBtn.classList.add('liked');
+                    likeIcon.textContent = '❤️';
+                } else {
+                    likeBtn.classList.remove('liked');
+                    likeIcon.textContent = '👍';
+                }
+            }
+
+            // Mula dengan animasi
+            setTimeout(() => {
+                animateCount(likeStatCountEl, likeCount, 1600, formatCount);
+                likeCountEl.textContent = formatCount(likeCount);
+                if (liked) {
+                    likeBtn.classList.add('liked');
+                    likeIcon.textContent = '❤️';
+                }
+            }, 300);
+
+            likeBtn.addEventListener('click', () => {
+                if (liked) {
+                    liked = false;
+                    likeCount = BASE_LIKES;
+                    localStorage.setItem('kadLiked', 'false');
+                } else {
+                    liked = true;
+                    likeCount = BASE_LIKES + 1;
+                    localStorage.setItem('kadLiked', 'true');
+                    likeBtn.style.transform = 'scale(1.2)';
+                    setTimeout(() => { likeBtn.style.transform = ''; }, 150);
+                    for (let i = 0; i < 8; i++) createConfetti();
+                }
+                renderLikes(true);
+                // Pulse pada badge likes
+                likesBadge.classList.remove('pulse');
+                void likesBadge.offsetWidth;
+                likesBadge.classList.add('pulse');
+            });
+
+            /* ===== SUBSCRIBERS ===== */
+            let subscribed = localStorage.getItem('kadSubscribed') === 'true';
+            let subCount = BASE_SUBS + (subscribed ? 1 : 0);
+
+            function renderSub(animate = false) {
+                if (subscribed) {
+                    subBtn.classList.add('subscribed');
+                    subBtn.innerHTML = '<span>✅</span> SUBSCRIBED';
+                } else {
+                    subBtn.classList.remove('subscribed');
+                    subBtn.innerHTML = '<span>🔔</span> SUBSCRIBE';
+                }
+                if (animate) {
+                    const target = subCount;
+                    const from = BASE_SUBS;
+                    const start = performance.now();
+                    const duration = 400;
+                    function step(now) {
+                        const p = Math.min((now - start) / duration, 1);
+                        const eased = 1 - Math.pow(1 - p, 3);
+                        const cur = Math.floor(from + (target - from) * eased);
+                        subStatCountEl.textContent = formatCount(cur);
+                        if (p < 1) requestAnimationFrame(step);
+                        else subStatCountEl.textContent = formatCount(target);
+                    }
+                    requestAnimationFrame(step);
+                } else {
+                    subStatCountEl.textContent = formatCount(subCount);
+                }
+            }
+
+            setTimeout(() => {
+                animateCount(subStatCountEl, subCount, 1600, formatCount);
+                if (subscribed) {
+                    subBtn.classList.add('subscribed');
+                    subBtn.innerHTML = '<span>✅</span> SUBSCRIBED';
+                }
+            }, 500);
+
+            subBtn.addEventListener('click', () => {
+                subscribed = true;
+                subCount = BASE_SUBS + 1;
+                localStorage.setItem('kadSubscribed', 'true');
+                renderSub(true);
+                for (let i = 0; i < 20; i++) createConfetti();
+                subsBadge.classList.remove('pulse');
+                void subsBadge.offsetWidth;
+                subsBadge.classList.add('pulse');
+            });
+
+            /* ===== NOT LAGU HAPPY BIRTHDAY ===== */
+            const notes = [
+                { note: 'G4', dur: 0.3 }, { note: 'G4', dur: 0.15 }, { note: 'A4', dur: 0.5 }, { note: 'G4', dur: 0.5 }, { note: 'C5', dur: 0.5 }, { note: 'B4', dur: 0.9 },
+                { note: 'G4', dur: 0.3 }, { note: 'G4', dur: 0.15 }, { note: 'A4', dur: 0.5 }, { note: 'G4', dur: 0.5 }, { note: 'D5', dur: 0.5 }, { note: 'C5', dur: 0.9 },
+                { note: 'G4', dur: 0.3 }, { note: 'G4', dur: 0.15 }, { note: 'G5', dur: 0.5 }, { note: 'E5', dur: 0.5 }, { note: 'C5', dur: 0.5 }, { note: 'B4', dur: 0.5 }, { note: 'A4', dur: 0.9 },
+                { note: 'F5', dur: 0.3 }, { note: 'F5', dur: 0.15 }, { note: 'E5', dur: 0.5 }, { note: 'C5', dur: 0.5 }, { note: 'D5', dur: 0.5 }, { note: 'C5', dur: 1.0 }
+            ];
+
+            const freqMap = {
+                'G4': 392.00, 'A4': 440.00, 'B4': 493.88, 'C5': 523.25,
+                'D5': 587.33, 'E5': 659.25, 'F5': 698.46, 'G5': 783.99
+            };
+
+            let audioCtx = null;
+            let isPlaying = false;
+            let stopTimeout = null;
+            let currentOscillators = [];
+
+            function initAudio() {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                return audioCtx;
+            }
+
+            function playMelody() {
+                if (isPlaying) return;
+                const ctx = initAudio();
+                if (!ctx) return;
+
+                isPlaying = true;
+                songBtn.disabled = true;
+                songBtn.innerHTML = '<span>🎶</span> Memainkan... <span>🎵</span>';
+
+                let totalDuration = notes.reduce((acc, n) => acc + n.dur, 0) + 0.3;
+                let startTime = ctx.currentTime + 0.15;
+
+                notes.forEach((item) => {
+                    const freq = freqMap[item.note];
+                    if (!freq) return;
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.value = freq;
+                    const now = startTime;
+                    const dur = item.dur;
+                    gain.gain.setValueAtTime(0, now);
+                    gain.gain.linearRampToValueAtTime(0.3, now + 0.03);
+                    gain.gain.setValueAtTime(0.3, now + dur - 0.05);
+                    gain.gain.linearRampToValueAtTime(0, now + dur);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + dur + 0.05);
+                    currentOscillators.push(osc);
+                    startTime += dur;
+                });
+
+                stopTimeout = setTimeout(() => {
+                    isPlaying = false;
+                    songBtn.disabled = false;
+                    songBtn.innerHTML = '<span>🎵</span> Main Lagu <span>🎶</span>';
+                    currentOscillators = [];
+                }, totalDuration * 1000 + 200);
+            }
+
+            /* ===== POTONG KEK + CONFETTI ===== */
+            function blowCandles() {
+                if (candleBtn.classList.contains('blown')) return;
+                candlesDiv.classList.add('off');
+                cakeEmoji.classList.add('blown');
+                candleBtn.classList.add('blown');
+                candleBtn.innerHTML = '<span>✅</span> Virtual Kek Telah Di Potong, Sila Ambil 🍰. Hahahahaha 😋... <span>🎉</span>';
+                for (let i = 0; i < 40; i++) createConfetti();
+                setTimeout(() => { if (!isPlaying) playMelody(); }, 300);
+            }
+
+            function createConfetti() {
+                const confetti = document.createElement('div');
+                confetti.textContent = ['🎉','🎊','⭐','🌟','💖','🎈','✨','🎂','🍰'][Math.floor(Math.random() * 9)];
+                confetti.style.position = 'fixed';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = '-10vh';
+                confetti.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                confetti.style.zIndex = '9999';
+                confetti.style.pointerEvents = 'none';
+                confetti.style.opacity = '0.9';
+                confetti.style.transition = 'transform 2s ease-out, opacity 2s ease-out';
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                document.body.appendChild(confetti);
+                requestAnimationFrame(() => {
+                    confetti.style.transform = `translateY(110vh) rotate(${Math.random() * 720}deg)`;
+                    confetti.style.opacity = '0';
+                });
+                setTimeout(() => confetti.remove(), 2200);
+            }
+
+            /* ===== EVENT LISTENER ===== */
+            songBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (isPlaying) {
+                    if (stopTimeout) clearTimeout(stopTimeout);
+                    currentOscillators.forEach(osc => { try { osc.stop(); } catch(err) {} });
+                    currentOscillators = [];
+                    isPlaying = false;
+                    songBtn.disabled = false;
+                    songBtn.innerHTML = '<span>🎵</span> Main Lagu <span>🎶</span>';
+                    setTimeout(playMelody, 100);
+                } else {
+                    playMelody();
+                }
+            });
+
+            candleBtn.addEventListener('click', (e) => { e.preventDefault(); blowCandles(); });
+
+            document.body.addEventListener('click', function once() {
+                if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+                document.body.removeEventListener('click', once);
+            }, { once: true });
+
+        })();
+    </script>
+</body>
+</html>
