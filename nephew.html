@@ -22,8 +22,55 @@
             /* Tema purple ceria */
             background: linear-gradient(135deg, #e9d5ff 0%, #c4b5fd 30%, #a78bfa 60%, #d8b4fe 100%);
             padding: 1rem;
+            padding-top: 4rem; /* Ruang untuk butang terapung */
+            padding-bottom: 4rem;
             overflow-x: hidden;
             position: relative;
+            transition: font-size 0.3s ease;
+        }
+
+        /* ===== KAWALAN TERAPUNG (A+, A-, SKROL) ===== */
+        .floating-controls {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 999;
+        }
+
+        .control-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #a78bfa;
+            color: #6d28d9;
+            font-family: 'Baloo 2', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(109, 40, 217, 0.3);
+            transition: all 0.2s;
+        }
+
+        .control-btn:active {
+            transform: scale(0.9);
+            background: #ede9fe;
+        }
+
+        .scroll-controls {
+            position: fixed;
+            bottom: 20px;
+            right: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 999;
         }
 
         /* ===== HIASAN LATAR ===== */
@@ -85,6 +132,8 @@
             text-align: center;
             z-index: 10;
             animation: cardPop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            /* Font scaling menggunakan variable */
+            --scale: 1;
         }
 
         @keyframes cardPop {
@@ -107,8 +156,7 @@
         }
 
         h1 {
-            font-family: 'Baloo 2', 'Fredoka', sans-serif;
-            font-size: 3rem;
+            font-size: calc(3rem * var(--scale));
             font-weight: 800;
             color: #6d28d9;
             text-shadow: 3px 3px 0 #ede9fe, 6px 6px 0 rgba(167, 139, 250, 0.4);
@@ -116,11 +164,11 @@
             line-height: 1.2;
             margin: 0.2rem 0;
             word-break: break-word;
+            transition: font-size 0.3s ease;
         }
 
         .name {
-            font-family: 'Baloo 2', 'Fredoka', sans-serif;
-            font-size: 4rem;
+            font-size: calc(4rem * var(--scale));
             font-weight: 800;
             background: linear-gradient(45deg, #9333ea, #ec4899, #8b5cf6);
             -webkit-background-clip: text;
@@ -132,6 +180,7 @@
             word-break: break-word;
             animation: shimmer 3s infinite;
             background-size: 200% auto;
+            transition: font-size 0.3s ease;
         }
 
         @keyframes shimmer {
@@ -143,8 +192,7 @@
             display: inline-block;
             background: linear-gradient(145deg, #fbbf24, #f59e0b);
             color: #6b21a8;
-            font-family: 'Baloo 2', 'Fredoka', sans-serif;
-            font-size: 1.8rem;
+            font-size: calc(1.8rem * var(--scale));
             font-weight: 800;
             padding: 0.3rem 1.8rem;
             border-radius: 60px;
@@ -152,6 +200,7 @@
             box-shadow: 0 8px 0 #d97706, 0 10px 20px rgba(217, 119, 6, 0.35);
             transform: rotate(-2deg);
             border: 3px solid white;
+            transition: font-size 0.3s ease;
         }
 
         /* ===== STATS PANEL ===== */
@@ -169,14 +218,13 @@
             gap: 6px;
             background: #2e1065;
             color: #fff;
-            font-family: 'Baloo 2', 'Fredoka', sans-serif;
-            font-size: 1rem;
+            font-size: calc(1rem * var(--scale));
             font-weight: 700;
             padding: 0.45rem 1rem;
             border-radius: 40px;
             box-shadow: 0 6px 0 #1e0a4a, 0 8px 15px rgba(46, 16, 101, 0.4);
             letter-spacing: 0.3px;
-            transition: transform 0.2s;
+            transition: all 0.2s;
         }
 
         .stat-badge.pulse {
@@ -204,10 +252,11 @@
 
         .stat-badge .count {
             color: #fde68a;
-            font-size: 1.15rem;
+            font-size: calc(1.15rem * var(--scale));
             min-width: 3ch;
             text-align: center;
             font-variant-numeric: tabular-nums;
+            transition: font-size 0.3s ease;
         }
 
         .stat-badge.views { background: #2e1065; }
@@ -224,13 +273,13 @@
         }
 
         .viral-badge {
-            font-family: 'Baloo 2', 'Fredoka', sans-serif;
-            font-size: 0.85rem;
+            font-size: calc(0.85rem * var(--scale));
             font-weight: 800;
             padding: 0.3rem 0.9rem;
             border-radius: 30px;
             letter-spacing: 1px;
             animation: viralGlow 1.8s infinite alternate;
+            transition: font-size 0.3s ease;
         }
 
         .viral-badge.trending {
@@ -288,8 +337,7 @@
 
         /* ===== MESEJ ===== */
         .message {
-            font-family: 'Baloo 2', 'Fredoka', sans-serif;
-            font-size: 1.4rem;
+            font-size: calc(1.4rem * var(--scale));
             color: #4c1d95;
             background: #faf5ff;
             padding: 1.2rem 1.5rem;
@@ -299,6 +347,7 @@
             box-shadow: inset 0 0 0 3px #e9d5ff, 0 10px 20px rgba(109, 40, 217, 0.15);
             font-weight: 600;
             border: 2px dashed #c4b5fd;
+            transition: font-size 0.3s ease;
         }
 
         /* ===== BUTANG ===== */
@@ -313,8 +362,7 @@
         .btn {
             border: none;
             color: white;
-            font-family: 'Baloo 2', 'Fredoka', sans-serif;
-            font-size: 1.3rem;
+            font-size: calc(1.3rem * var(--scale));
             font-weight: 700;
             padding: 1rem 1.8rem;
             border-radius: 60px;
@@ -323,7 +371,7 @@
             justify-content: center;
             gap: 10px;
             cursor: pointer;
-            transition: all 0.15s ease;
+            transition: all 0.15s ease, font-size 0.3s ease;
             box-shadow: 0 10px 0 #5b21b6, 0 12px 20px rgba(0,0,0,0.15);
             border: 2px solid rgba(255,255,255,0.6);
             letter-spacing: 0.5px;
@@ -336,21 +384,19 @@
             box-shadow: 0 4px 0 #5b21b6, 0 6px 12px rgba(0,0,0,0.15);
         }
 
-        .btn-song { background: linear-gradient(145deg, #a855f7, #7c3aed); }
-        .btn-song:hover { background: linear-gradient(145deg, #b975f9, #8b5cf6); transform: scale(1.03); }
-
+        /* BUTANG POTONG KEK: HIJAU */
         .btn-candle {
-            background: linear-gradient(145deg, #fbbf24, #f59e0b);
-            box-shadow: 0 10px 0 #b45309, 0 12px 20px rgba(0,0,0,0.15);
+            background: linear-gradient(145deg, #22c55e, #16a34a);
+            box-shadow: 0 10px 0 #15803d, 0 12px 20px rgba(0,0,0,0.15);
         }
-        .btn-candle:hover { background: linear-gradient(145deg, #fcd34d, #fbbf24); transform: scale(1.03); }
+        .btn-candle:hover { background: linear-gradient(145deg, #4ade80, #22c55e); transform: scale(1.03); }
 
         .btn-candle.blown {
             background: linear-gradient(145deg, #b0b0b0, #888);
             box-shadow: 0 10px 0 #555, 0 12px 20px rgba(0,0,0,0.15);
             pointer-events: none;
             opacity: 0.85;
-            font-size: 1rem;
+            font-size: calc(1rem * var(--scale));
             line-height: 1.3;
             padding: 0.9rem 1.2rem;
         }
@@ -391,7 +437,7 @@
             background: rgba(255,255,255,0.3);
             padding: 0.1rem 0.6rem;
             border-radius: 30px;
-            font-size: 1rem;
+            font-size: calc(1rem * var(--scale));
         }
 
         /* ===== NOT MUZIK ===== */
@@ -417,16 +463,16 @@
 
         .footer {
             margin-top: 1rem;
-            font-family: 'Baloo 2', 'Fredoka', sans-serif;
-            font-size: 1.2rem;
+            font-size: calc(1.2rem * var(--scale));
             color: #6d28d9;
             font-weight: 600;
             letter-spacing: 0.3px;
+            transition: font-size 0.3s ease;
         }
 
         .footer .signature {
             display: block;
-            font-size: 1.6rem;
+            font-size: calc(1.6rem * var(--scale));
             color: #9333ea;
             margin-top: 0.3rem;
             font-weight: 800;
@@ -436,33 +482,45 @@
         /* ===== RESPONSIF ===== */
         @media (max-width: 600px) {
             .card { padding: 1.5rem 1rem; border-radius: 40px; }
-            h1 { font-size: 2.2rem; }
-            .name { font-size: 2.6rem; }
-            .age { font-size: 1.4rem; padding: 0.2rem 1.2rem; }
+            h1 { font-size: calc(2.2rem * var(--scale)); }
+            .name { font-size: calc(2.6rem * var(--scale)); }
+            .age { font-size: calc(1.4rem * var(--scale)); padding: 0.2rem 1.2rem; }
             .cake-emoji { font-size: 5rem; }
-            .message { font-size: 1.15rem; padding: 1rem; }
-            .btn { font-size: 1.05rem; padding: 0.8rem 1rem; min-width: 140px; gap: 6px; }
+            .message { font-size: calc(1.15rem * var(--scale)); padding: 1rem; }
+            .btn { font-size: calc(1.05rem * var(--scale)); padding: 0.8rem 1rem; min-width: 140px; gap: 6px; }
             .balloon { font-size: 2.2rem !important; }
             .star { font-size: 1.2rem; }
-            .footer { font-size: 1.05rem; }
-            .footer .signature { font-size: 1.35rem; }
-            .stat-badge { font-size: 0.85rem; padding: 0.35rem 0.7rem; gap: 4px; }
-            .stat-badge .count { font-size: 1rem; }
-            .viral-badge { font-size: 0.72rem; padding: 0.25rem 0.7rem; }
+            .footer { font-size: calc(1.05rem * var(--scale)); }
+            .footer .signature { font-size: calc(1.35rem * var(--scale)); }
+            .stat-badge { font-size: calc(0.85rem * var(--scale)); padding: 0.35rem 0.7rem; gap: 4px; }
+            .stat-badge .count { font-size: calc(1rem * var(--scale)); }
+            .viral-badge { font-size: calc(0.72rem * var(--scale)); padding: 0.25rem 0.7rem; }
         }
 
         @media (max-width: 400px) {
-            h1 { font-size: 1.8rem; }
-            .name { font-size: 2.1rem; }
-            .btn { font-size: 0.92rem; min-width: 120px; }
+            h1 { font-size: calc(1.8rem * var(--scale)); }
+            .name { font-size: calc(2.1rem * var(--scale)); }
+            .btn { font-size: calc(0.92rem * var(--scale)); min-width: 120px; }
             .button-group, .social-group { gap: 8px; }
             .stats-panel { gap: 5px; }
-            .stat-badge { font-size: 0.72rem; padding: 0.3rem 0.6rem; }
-            .message { font-size: 1.05rem; }
+            .stat-badge { font-size: calc(0.72rem * var(--scale)); padding: 0.3rem 0.6rem; }
+            .message { font-size: calc(1.05rem * var(--scale)); }
         }
     </style>
 </head>
 <body>
+
+    <!-- Butang Kawalan Saiz Font (Kanan Atas) -->
+    <div class="floating-controls">
+        <button class="control-btn" id="fontUp" aria-label="Besarkan teks">A+</button>
+        <button class="control-btn" id="fontDown" aria-label="Kecilkan teks">A-</button>
+    </div>
+
+    <!-- Butang Kawalan Skrol (Kanan Bawah) -->
+    <div class="scroll-controls">
+        <button class="control-btn" id="scrollUp" aria-label="Skrol ke atas">⬆️</button>
+        <button class="control-btn" id="scrollDown" aria-label="Skrol ke bawah">⬇️</button>
+    </div>
 
     <!-- Hiasan latar -->
     <div class="balloon">🎈</div>
@@ -478,7 +536,7 @@
     <div class="star">⭐</div>
 
     <!-- Kad -->
-    <div class="card">
+    <div class="card" id="mainCard">
         <div class="top-emoji">🎂🎉</div>
         <h1>Selamat Hari Lahir</h1>
         <div class="name">Anak Saudara Tersayang</div>
@@ -522,11 +580,8 @@
             Pak Cik doakan kamu bahagia selalu! 💖
         </div>
 
-        <!-- Butang utama -->
+        <!-- Butang utama (Main Lagu dibuang, Potong Kek warna hijau) -->
         <div class="button-group">
-            <button class="btn btn-song" id="songBtn" aria-label="Main lagu Happy Birthday">
-                <span>🎵</span> Main Lagu <span>🎶</span>
-            </button>
             <button class="btn btn-candle" id="candleBtn" aria-label="Potong Kek">
                 <span>💨</span> Sila Potong Virtual Kek <span>🎂</span>
             </button>
@@ -551,7 +606,6 @@
 
     <script>
         (function() {
-            const songBtn = document.getElementById('songBtn');
             const candleBtn = document.getElementById('candleBtn');
             const candlesDiv = document.getElementById('candles');
             const cakeEmoji = document.getElementById('cakeEmoji');
@@ -565,6 +619,36 @@
             const viewsBadge = document.getElementById('viewsBadge');
             const likesBadge = document.getElementById('likesBadge');
             const subsBadge = document.getElementById('subsBadge');
+            const mainCard = document.getElementById('mainCard');
+
+            /* ===== KAWALAN SAIZ FONT (A+ / A-) ===== */
+            let currentScale = 1;
+            const minScale = 0.8;
+            const maxScale = 1.5;
+            const stepScale = 0.1;
+
+            document.getElementById('fontUp').addEventListener('click', () => {
+                if (currentScale < maxScale) {
+                    currentScale += stepScale;
+                    mainCard.style.setProperty('--scale', currentScale.toFixed(1));
+                }
+            });
+
+            document.getElementById('fontDown').addEventListener('click', () => {
+                if (currentScale > minScale) {
+                    currentScale -= stepScale;
+                    mainCard.style.setProperty('--scale', currentScale.toFixed(1));
+                }
+            });
+
+            /* ===== KAWALAN SKROL (UP / DOWN) ===== */
+            document.getElementById('scrollUp').addEventListener('click', () => {
+                window.scrollBy({ top: -250, behavior: 'smooth' });
+            });
+
+            document.getElementById('scrollDown').addEventListener('click', () => {
+                window.scrollBy({ top: 250, behavior: 'smooth' });
+            });
 
             /* ===== ANGKA ASAS ===== */
             const BASE_VIEWS = 1234567;
@@ -720,7 +804,7 @@
                 subsBadge.classList.add('pulse');
             });
 
-            /* ===== NOT LAGU ===== */
+            /* ===== NOT LAGU HAPPY BIRTHDAY ===== */
             const notes = [
                 { note: 'G4', dur: 0.3 }, { note: 'G4', dur: 0.15 }, { note: 'A4', dur: 0.5 }, { note: 'G4', dur: 0.5 }, { note: 'C5', dur: 0.5 }, { note: 'B4', dur: 0.9 },
                 { note: 'G4', dur: 0.3 }, { note: 'G4', dur: 0.15 }, { note: 'A4', dur: 0.5 }, { note: 'G4', dur: 0.5 }, { note: 'D5', dur: 0.5 }, { note: 'C5', dur: 0.9 },
@@ -737,6 +821,7 @@
             let isPlaying = false;
             let stopTimeout = null;
             let currentOscillators = [];
+            let autoplayAttempted = false;
 
             function initAudio() {
                 if (!audioCtx) {
@@ -752,8 +837,6 @@
                 if (!ctx) return;
 
                 isPlaying = true;
-                songBtn.disabled = true;
-                songBtn.innerHTML = '<span>🎶</span> Memainkan... <span>🎵</span>';
 
                 let totalDuration = notes.reduce((acc, n) => acc + n.dur, 0) + 0.3;
                 let startTime = ctx.currentTime + 0.15;
@@ -781,11 +864,29 @@
 
                 stopTimeout = setTimeout(() => {
                     isPlaying = false;
-                    songBtn.disabled = false;
-                    songBtn.innerHTML = '<span>🎵</span> Main Lagu <span>🎶</span>';
                     currentOscillators = [];
                 }, totalDuration * 1000 + 200);
             }
+
+            /* ===== AUTO-PLAY MUZIK ===== */
+            // Cuba main secara automatik (mungkin disekat oleh browser)
+            setTimeout(() => {
+                const ctx = initAudio();
+                if (ctx && ctx.state === 'running') {
+                    playMelody();
+                } else {
+                    // Jika disekat, tunggu interaksi pertama (klik/ketik di mana-mana)
+                    const playOnInteraction = () => {
+                        if (!isPlaying) {
+                            playMelody();
+                        }
+                        document.body.removeEventListener('click', playOnInteraction);
+                        document.body.removeEventListener('touchstart', playOnInteraction);
+                    };
+                    document.body.addEventListener('click', playOnInteraction);
+                    document.body.addEventListener('touchstart', playOnInteraction);
+                }
+            }, 500);
 
             /* ===== POTONG KEK ===== */
             function blowCandles() {
@@ -818,28 +919,7 @@
                 setTimeout(() => confetti.remove(), 2200);
             }
 
-            /* ===== EVENT LISTENER ===== */
-            songBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (isPlaying) {
-                    if (stopTimeout) clearTimeout(stopTimeout);
-                    currentOscillators.forEach(osc => { try { osc.stop(); } catch(err) {} });
-                    currentOscillators = [];
-                    isPlaying = false;
-                    songBtn.disabled = false;
-                    songBtn.innerHTML = '<span>🎵</span> Main Lagu <span>🎶</span>';
-                    setTimeout(playMelody, 100);
-                } else {
-                    playMelody();
-                }
-            });
-
             candleBtn.addEventListener('click', (e) => { e.preventDefault(); blowCandles(); });
-
-            document.body.addEventListener('click', function once() {
-                if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
-                document.body.removeEventListener('click', once);
-            }, { once: true });
 
         })();
     </script>
