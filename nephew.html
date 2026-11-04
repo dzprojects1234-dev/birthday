@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Selamat Hari Lahir Anak Saudara 🎂</title>
 
-    <!-- Font mesra kanak-kanak: Baloo 2 (bulat & comel) + Fredoka (fallback) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -19,17 +18,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            /* Tema purple ceria */
             background: linear-gradient(135deg, #e9d5ff 0%, #c4b5fd 30%, #a78bfa 60%, #d8b4fe 100%);
             padding: 1rem;
-            padding-top: 4rem; /* Ruang untuk butang terapung */
+            padding-top: 4rem;
             padding-bottom: 4rem;
             overflow-x: hidden;
             position: relative;
-            transition: font-size 0.3s ease;
         }
 
-        /* ===== KAWALAN TERAPUNG (A+, A-, SKROL) ===== */
+        /* ===== KAWALAN TERAPUNG ===== */
         .floating-controls {
             position: fixed;
             top: 15px;
@@ -58,10 +55,7 @@
             transition: all 0.2s;
         }
 
-        .control-btn:active {
-            transform: scale(0.9);
-            background: #ede9fe;
-        }
+        .control-btn:active { transform: scale(0.9); background: #ede9fe; }
 
         .scroll-controls {
             position: fixed;
@@ -71,6 +65,54 @@
             flex-direction: column;
             gap: 8px;
             z-index: 999;
+        }
+
+        /* ===== OVERLAY MUZIK (Paksa Klik) ===== */
+        .music-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(46, 16, 101, 0.85);
+            backdrop-filter: blur(5px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: opacity 0.5s ease;
+        }
+
+        .music-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .btn-start-music {
+            background: linear-gradient(145deg, #a855f7, #7c3aed);
+            border: 4px solid white;
+            color: white;
+            font-family: 'Baloo 2', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            padding: 1.5rem 3rem;
+            border-radius: 80px;
+            cursor: pointer;
+            box-shadow: 0 15px 0 #5b21b6, 0 20px 30px rgba(0,0,0,0.4);
+            animation: pulseBtn 1.5s infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-start-music:active {
+            transform: translateY(10px);
+            box-shadow: 0 5px 0 #5b21b6, 0 10px 15px rgba(0,0,0,0.4);
+        }
+
+        @keyframes pulseBtn {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
         /* ===== HIASAN LATAR ===== */
@@ -132,7 +174,6 @@
             text-align: center;
             z-index: 10;
             animation: cardPop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-            /* Font scaling menggunakan variable */
             --scale: 1;
         }
 
@@ -227,9 +268,7 @@
             transition: all 0.2s;
         }
 
-        .stat-badge.pulse {
-            animation: badgePulse 0.5s ease;
-        }
+        .stat-badge.pulse { animation: badgePulse 0.5s ease; }
 
         @keyframes badgePulse {
             0% { transform: scale(1); }
@@ -495,6 +534,7 @@
             .stat-badge { font-size: calc(0.85rem * var(--scale)); padding: 0.35rem 0.7rem; gap: 4px; }
             .stat-badge .count { font-size: calc(1rem * var(--scale)); }
             .viral-badge { font-size: calc(0.72rem * var(--scale)); padding: 0.25rem 0.7rem; }
+            .btn-start-music { font-size: 1.4rem; padding: 1.2rem 2rem; }
         }
 
         @media (max-width: 400px) {
@@ -505,18 +545,27 @@
             .stats-panel { gap: 5px; }
             .stat-badge { font-size: calc(0.72rem * var(--scale)); padding: 0.3rem 0.6rem; }
             .message { font-size: calc(1.05rem * var(--scale)); }
+            .btn-start-music { font-size: 1.2rem; padding: 1rem 1.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Butang Kawalan Saiz Font (Kanan Atas) -->
+    <!-- OVERLAY: Paksa klik untuk mula muzik -->
+    <div class="music-overlay" id="musicOverlay">
+        <button class="btn-start-music" id="startMusicBtn">
+            <span>🎵 Tekan Sini 🎵</span>
+            <span style="font-size: 1rem; font-weight: 600; opacity: 0.9;">(Untuk Main Lagu & Buka Kad)</span>
+        </button>
+    </div>
+
+    <!-- Butang Kawalan Saiz Font -->
     <div class="floating-controls">
         <button class="control-btn" id="fontUp" aria-label="Besarkan teks">A+</button>
         <button class="control-btn" id="fontDown" aria-label="Kecilkan teks">A-</button>
     </div>
 
-    <!-- Butang Kawalan Skrol (Kanan Bawah) -->
+    <!-- Butang Kawalan Skrol -->
     <div class="scroll-controls">
         <button class="control-btn" id="scrollUp" aria-label="Skrol ke atas">⬆️</button>
         <button class="control-btn" id="scrollDown" aria-label="Skrol ke bawah">⬇️</button>
@@ -580,7 +629,7 @@
             Pak Cik doakan kamu bahagia selalu! 💖
         </div>
 
-        <!-- Butang utama (Main Lagu dibuang, Potong Kek warna hijau) -->
+        <!-- Butang utama (Hanya Potong Kek) -->
         <div class="button-group">
             <button class="btn btn-candle" id="candleBtn" aria-label="Potong Kek">
                 <span>💨</span> Sila Potong Virtual Kek <span>🎂</span>
@@ -606,6 +655,8 @@
 
     <script>
         (function() {
+            const musicOverlay = document.getElementById('musicOverlay');
+            const startMusicBtn = document.getElementById('startMusicBtn');
             const candleBtn = document.getElementById('candleBtn');
             const candlesDiv = document.getElementById('candles');
             const cakeEmoji = document.getElementById('cakeEmoji');
@@ -621,7 +672,7 @@
             const subsBadge = document.getElementById('subsBadge');
             const mainCard = document.getElementById('mainCard');
 
-            /* ===== KAWALAN SAIZ FONT (A+ / A-) ===== */
+            /* ===== KAWALAN SAIZ FONT ===== */
             let currentScale = 1;
             const minScale = 0.8;
             const maxScale = 1.5;
@@ -641,7 +692,7 @@
                 }
             });
 
-            /* ===== KAWALAN SKROL (UP / DOWN) ===== */
+            /* ===== KAWALAN SKROL ===== */
             document.getElementById('scrollUp').addEventListener('click', () => {
                 window.scrollBy({ top: -250, behavior: 'smooth' });
             });
@@ -650,12 +701,11 @@
                 window.scrollBy({ top: 250, behavior: 'smooth' });
             });
 
-            /* ===== ANGKA ASAS ===== */
+            /* ===== ANGKA & STATS ===== */
             const BASE_VIEWS = 1234567;
             const BASE_LIKES = 98765;
             const BASE_SUBS  = 12345;
 
-            /* ===== FORMAT ANGKA ===== */
             function formatCount(n) {
                 if (n >= 1000000) return (n / 1000000).toFixed(1).replace('.0','') + 'J';
                 if (n >= 1000) return (n / 1000).toFixed(1).replace('.0','') + 'K';
@@ -821,7 +871,6 @@
             let isPlaying = false;
             let stopTimeout = null;
             let currentOscillators = [];
-            let autoplayAttempted = false;
 
             function initAudio() {
                 if (!audioCtx) {
@@ -868,25 +917,19 @@
                 }, totalDuration * 1000 + 200);
             }
 
-            /* ===== AUTO-PLAY MUZIK ===== */
-            // Cuba main secara automatik (mungkin disekat oleh browser)
-            setTimeout(() => {
+            /* ===== OVERLAY KLIK UNTUK MUZIK ===== */
+            startMusicBtn.addEventListener('click', () => {
+                // Mulakan audio context & main lagu
                 const ctx = initAudio();
-                if (ctx && ctx.state === 'running') {
-                    playMelody();
-                } else {
-                    // Jika disekat, tunggu interaksi pertama (klik/ketik di mana-mana)
-                    const playOnInteraction = () => {
-                        if (!isPlaying) {
-                            playMelody();
-                        }
-                        document.body.removeEventListener('click', playOnInteraction);
-                        document.body.removeEventListener('touchstart', playOnInteraction);
-                    };
-                    document.body.addEventListener('click', playOnInteraction);
-                    document.body.addEventListener('touchstart', playOnInteraction);
-                }
-            }, 500);
+                if (ctx.state === 'suspended') ctx.resume();
+                playMelody();
+
+                // Sorokkan overlay
+                musicOverlay.classList.add('hidden');
+                
+                // Confetti pembukaan
+                for (let i = 0; i < 30; i++) setTimeout(createConfetti, i * 50);
+            });
 
             /* ===== POTONG KEK ===== */
             function blowCandles() {
@@ -896,7 +939,6 @@
                 candleBtn.classList.add('blown');
                 candleBtn.innerHTML = '<span>✅</span> Virtual Kek Telah Di Potong, Sila Ambil 🍰. Hahahahaha 😋... <span>🎉</span>';
                 for (let i = 0; i < 40; i++) createConfetti();
-                setTimeout(() => { if (!isPlaying) playMelody(); }, 300);
             }
 
             function createConfetti() {
